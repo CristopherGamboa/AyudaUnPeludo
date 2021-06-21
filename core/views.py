@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from .models import Animal
+from core.forms import AnimalForm
 
 # Create your views here.
-
 
 def home(request):
     animales = Animal.objects.all()
@@ -29,33 +29,23 @@ def contacto(request):
 def donaciones(request):
     return render(request, 'core/donaciones.html')
 
-# def form_vehiculo(request):
+def form_animal(request):
 
-#     datos= {
+    datos= {
+        'form': AnimalForm()
+    }
 
-#         'form': VehiculoForm()
+    if request.method == 'POST':
 
-#     }
+        formulario = AnimalForm(request.POST)
 
+        if formulario.is_valid:
 
+            formulario.save()
 
-#     if request.method == 'POST':
+            datos['mensaje'] = "Datos guardados correctamente."
 
-#         formulario = VehiculoForm(request.POST)
-
-
-
-#         if formulario.is_valid:
-
-#             formulario.save()
-
-
-
-#             datos['mensaje'] = "Datos guardados correctamente"
-
-
-
-#     return render(request, 'core/form_vehiculo.html', datos)
+    return render(request, 'core/form_animal.html', datos)
 
 # def form_mod_vehiculo(request, id):
 
