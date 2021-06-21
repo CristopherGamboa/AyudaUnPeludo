@@ -1,0 +1,81 @@
+<div class="row">
+
+
+
+    <h1>Listado de vehículos</h1>
+
+
+
+</div>
+
+
+
+<div class="row">
+
+
+
+    <table border="1">
+
+
+
+        <tr>
+
+        <td>patente</td>
+
+        <td>marca</td>
+
+        <td>modelo</td>
+
+        <td>foto</td>
+
+        <td>opciones</td>
+
+
+
+
+
+        </tr>
+
+        {% load static %}
+
+        {% for an in animales %}
+
+
+
+        <tr>
+
+        <td>{{ve.patente}}</td>
+
+        <td>{{ve.marca}}</td>
+
+        <td>{{ve.modelo}}</td>
+
+        <td><img src="{% static 'core/img/cachulo.jpg'%}" /></td>
+<!-- 
+        <td><a href= "{% url 'form_mod_vehiculo' ve.patente %}">Modificar</a>
+
+            <a href= "{% url 'form_del_vehiculo' ve.patente %}">Eliminar</a>
+
+        </td>  -->
+
+
+
+
+
+        </tr>
+
+
+
+        {% endfor %}
+
+
+
+    </table>
+
+
+
+</div>
+
+
+
+<!-- <a href= "{% url 'form_vehiculo' %}">Nuevo vehículo</a> -->
