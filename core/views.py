@@ -43,7 +43,10 @@ def form_animal(request):
 
             formulario.save()
 
+            
             datos['mensaje'] = "Datos guardados correctamente."
+        else:
+            datos['mensaje'] = "Error"
 
     return render(request, 'core/form_animal.html', datos)
 
