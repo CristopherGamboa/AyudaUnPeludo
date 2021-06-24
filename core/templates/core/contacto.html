@@ -118,7 +118,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-1"></div>
-            <div class="col-md-10">
+            <div class="col-md-10" style="background-color: whitesmoke; background-clip: content-box ;">
                 <header>
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
@@ -165,15 +165,7 @@
                         <p class="text-over-img">CONTACTO</p>
                     </div>
                 </header>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10" style="background-color: whitesmoke; background-clip: content-box ;">
-                <div class="row row-cols-1 row-cols-xl-2">
+                <div class="row row-cols-1 row-cols-xl-2 py-5">
                     <div class="col px-5 py-5">
                         <form action="http://www.colex.cl/duoc/cargaData.php" method="POST" id="formulario" novalidate>
                             <div class="mb-3">
@@ -250,17 +242,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-1"></div>
-    </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
                 <footer class="bg-dark text-center text-white">
                     <div class="container p-4">
                         <section class="mb-4">
@@ -279,11 +260,11 @@
             <div class="col-md-1"></div>
         </div>
     </div>
-
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-    <script src="js/mdb.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'core/js/mdb.min.js' %}" crossorigin="anonymous"></script>
 </body>
 
 </html>

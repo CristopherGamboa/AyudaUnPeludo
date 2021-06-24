@@ -29,7 +29,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-1"></div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="background-color: whitesmoke; background-clip: content-box ;">
                     <header>
                         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                             <div class="container-fluid">
@@ -73,81 +73,52 @@
                             <p class="text-over-img">PERROS</p>
                         </div>
                     </header>
+                    <div class="row py-5 mx-5 row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                        {% for an in animales %}
+                        {% if an.especie|stringformat:"s" == "Perro" %}
+                        <div class="col">
+                            
+                            <a href="{% url 'fichaAnimal' an.nombreAnimal %}">
+                                <div class="card inner-box m-3" style="width: 18em;">
+                                    {% if an.fotografia %}
+                                        <img class="card-img-top" src="{{an.fotografia.url}}">
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <h5>{{an.nombreAnimal}}</h5>
+                                        <p class="card-text">{{an.nombreAnimal}} te quiere conocer, es {{an.generoAnimal}} y
+                                            tiene {{an.edadAnimal}} años de vida. <br><br>
+                                            {% if an.generoAnimal|stringformat:"s" == "Macho" %} 
+                                            ¡Cónocelo! 
+                                            {% else %}
+                                            ¡Cónocela!
+                                            {% endif %} 
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <footer class="bg-dark text-center text-white">
+                        <div class="container p-4">
+                            <section class="mb-4">
+                                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                        class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size: smaller;">
+                            Ayuda un peludo © 2021
+                        </div>
+                    </footer>
                 </div>
                 <div class="col-md-1"></div>
             </div>
         </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10" style="background-color: whitesmoke; background-clip: content-box ;">
-                <div class="row mx-5 mt-3 row-cols-1 row-cols-lg-2 row-cols-xl-3">
-                    <div class="col">
-                        <a href="cachulo.html">
-                            <div class="card inner-box m-3" style="width: 18em;">
-                                <img src="img/cachulo.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5>Cachulo</h5>
-                                    <p class="card-text">Cachulo llegó hacia nosotros hace dos meses, es un macho y
-                                        tiene aproximadamente cuatro años de vida. <br><br>¡Cónocelo!</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="flaca.html">
-                            <div class="card inner-box m-3" style="width: 18em;">
-                                <img src="img/flaca.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5>Flaca</h5>
-                                    <p class="card-text">Flaca llegó hacia nosotros hace siete semanas, es una hembra y
-                                        tiene
-                                        aproximadamente dos años de vida. <br><br>¡Cónocela!</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="niña.html">
-                            <div class="card inner-box m-3" style="width: 18em;">
-                                <img src="img/niña.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5>Niña</h5>
-                                    <p class="card-text">Niña llegó hacia nosotros hace nueve meses, es una hembra y
-                                        tiene
-                                        aproximadamente cuatro años de vida. <br><br>¡Cónocelo!</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-1"></div>
-    </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <footer class="bg-dark text-center text-white">
-                    <div class="container p-4">
-                        <section class="mb-4">
-                            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                    class="fab fa-instagram"></i></a>
-                    </div>
-                    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size: smaller;">
-                        Ayuda un peludo © 2021
-                    </div>
-                </footer>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"

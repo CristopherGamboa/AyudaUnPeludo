@@ -18,6 +18,7 @@
         }
     </style>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="{% static 'core/css/main.css'%}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -29,7 +30,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-1"></div>
-            <div class="col-md-10">
+            <div class="col-md-10" style="background-color: whitesmoke; background-clip: content-box ;">
                 <header>
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
@@ -76,15 +77,7 @@
                         <p class="text-over-img">DONACIONES</p>
                     </div>
                 </header>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10" style="background-color: whitesmoke; background-clip: content-box ;">
-                <div class="text-center p-4 bg-dark text-white">
+                <div class="text-center p-5 bg-dark text-white">
                     <h3>¿Te gustaría ser parte de este proyecto? ¡Te invitamos a donar!</h3>
                 </div>
 
@@ -117,17 +110,10 @@
                     </p>
                     <p class="temperatura" id="clima"></p>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-1"></div>
-    </div>
-    </div>
+                <div class="text-center py-3">
+                    <input class="btn btn-dark" type="button" value="Ver clima" onclick="getLocation()">
+                </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
                 <footer class="bg-dark text-center text-white">
                     <div class="container p-4">
                         <section class="mb-4">
@@ -152,12 +138,14 @@
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(obtenerClima, showError);
+                errorClima = $('#errorClima');
             } else {
                 $('#errorClima').html('La geolocalización no está disponible en su navegador.')
             }
         }
 
         function obtenerClima(position) {
+
             var latitud = position.coords.latitude;
             var longitud = position.coords.longitude;
             var dirAPI = "https://api.weatherapi.com/v1/current.json?key=714184f6b47d481a9d302104211105&q=";
@@ -188,11 +176,6 @@
                     break;
             }
         }
-
-        $(document).ready(function () {
-            errorClima = $('#errorClima');
-            getLocation();
-        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"

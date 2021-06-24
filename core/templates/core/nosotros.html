@@ -29,7 +29,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-1"></div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="background-color: whitesmoke; background-clip: content-box ;">
                     <header>
                         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                             <div class="container-fluid">
@@ -73,100 +73,82 @@
                             <p class="text-over-img">NOSOTROS</p>
                         </div>
                     </header>
+                    <p class="bodyText1 py-5">Somos una organización sin fines de lucro, la cual busca rescatar animales
+                        abandonados y/o
+                        maltratados,
+                        encargándonos de ellos y de su proceso de adopción a una nueva familia.</p>
+                    <hr>
+                    <h1 class="title1">
+                        NUESTROS INTEGRANTES:
+                    </h1>
+                    <hr>
+                    <section class="team-section text-center my-5">
+                        <div class="row text-center">
+                            <div class="col-md-6 mb-md-0 mb-5">
+                                <div class="avatar mx-auto">
+                                    <img src="{% static 'core/img/cristopher.jpg' %}"
+                                        class="rounded z-depth-1-half w-50" alt="Sample avatar">
+                                </div>
+                                <h4 class="font-weight-bold dark-grey-text my-4">Cristopher Gamboa</h4>
+                                <h6 class="text-uppercase grey-text mb-3"><strong>Director Ejecutivo</strong></h6>
+                                <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-email bg-dark text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-git bg-dark text-white">
+                                    <i class="fab fa-github"></i>
+                                </a>
+    
+                                <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-tw bg-dark text-white">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+    
+                            <div class="col-md-6 mb-md-0 mb-5">
+                                <div class="avatar mx-auto">
+                                    <img src="{% static 'core/img/felipe.jpg' %}"
+                                        class="rounded z-depth-1-half w-50" alt="Sample avatar">
+                                </div>
+                                <h4 class="font-weight-bold dark-grey-text my-4">Felipe Guerrero</h4>
+                                <h6 class="text-uppercase grey-text mb-3"><strong>Gerente de Operaciones</strong></h6>
+    
+                                <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-email bg-dark text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+    
+                                <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-fb bg-dark text-white">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-git bg-dark text-white">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+    
+                        </div>
+    
+                    </section>
+                    <footer class="bg-dark text-center text-white">
+                        <div class="container p-4">
+                            <section class="mb-4">
+                                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                        class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size: smaller;">
+                            Copyright © Ayuda un peludo 2021
+                        </div>
+                    </footer>
                 </div>
                 <div class="col-md-1"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10" style="background-color: whitesmoke; background-clip: content-box ;">
-                <p class="bodyText1">Somos una organización sin fines de lucro, la cual busca rescatar animales
-                    abandonados y/o
-                    maltratados,
-                    encargándonos de ellos y de su proceso de adopción a una nueva familia.</p>
-                <hr>
-                <h1 class="title1">
-                    NUESTROS INTEGRANTES:
-                </h1>
-                <hr>
-                <section class="team-section text-center my-5">
-                    <div class="row text-center">
-                        <div class="col-md-6 mb-md-0 mb-5">
-                            <div class="avatar mx-auto">
-                                <img src="img/cristopher.jpg"
-                                    class="rounded z-depth-1-half w-50" alt="Sample avatar">
-                            </div>
-                            <h4 class="font-weight-bold dark-grey-text my-4">Cristopher Gamboa</h4>
-                            <h6 class="text-uppercase grey-text mb-3"><strong>Director Ejecutivo</strong></h6>
-                            <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-email bg-dark text-white">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-git bg-dark text-white">
-                                <i class="fab fa-github"></i>
-                            </a>
-
-                            <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-tw bg-dark text-white">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6 mb-md-0 mb-5">
-                            <div class="avatar mx-auto">
-                                <img src="img/felipe.jpg"
-                                    class="rounded z-depth-1-half w-50" alt="Sample avatar">
-                            </div>
-                            <h4 class="font-weight-bold dark-grey-text my-4">Felipe Guerrero</h4>
-                            <h6 class="text-uppercase grey-text mb-3"><strong>Gerente de Operaciones</strong></h6>
-
-                            <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-email bg-dark text-white">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-
-                            <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-fb bg-dark text-white">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a type="button" class="btn-floating btn-sm mx-1 mb-0 btn-git bg-dark text-white">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </section>
-            </div>
-
-        </div>
-    </div>
-    </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <footer class="bg-dark text-center text-white">
-                    <div class="container p-4">
-                        <section class="mb-4">
-                            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                    class="fab fa-instagram"></i></a>
-                    </div>
-                    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size: smaller;">
-                        Copyright © Ayuda un peludo 2021
-                    </div>
-                </footer>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-    <script src="js/mdb.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'core/js/mdb.min.js' %}" crossorigin="anonymous"></script>
 
 </body>
 </html>

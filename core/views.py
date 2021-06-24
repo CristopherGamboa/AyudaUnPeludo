@@ -19,16 +19,32 @@ def nosotros(request):
     return render(request, 'core/nosotros.html')
 
 def gato(request):
-    return render(request, 'core/gato.html')
+    animales = Animal.objects.all()
+    datos = {
+        'animales': animales
+    }
+    return render(request, 'core/gato.html', datos)
 
 def perro(request):
-    return render(request, 'core/perro.html')
+    animales = Animal.objects.all()
+    datos = {
+        'animales': animales
+    }
+    return render(request, 'core/perro.html', datos)
 
 def contacto(request):
     return render(request, 'core/contacto.html')
 
 def donaciones(request):
     return render(request, 'core/donaciones.html')
+
+def fichaAnimal(request, id):
+    animal = Animal.objects.get(nombreAnimal = id)
+
+    datos= {
+        'an': animal
+    }
+    return render(request, 'core/fichaAnimal.html', datos)
 
 def form_animal(request):
 
@@ -58,7 +74,7 @@ def form_mod_animal(request, id):
 
     if request.method == 'POST':
 
-        formulario = AnimalForm(data = request.POST, instance=animal)
+        formulario = AnimalForm(request.POST, request.FILES, instance= animal)
 
         if formulario.is_valid:
 
