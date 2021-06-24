@@ -19,8 +19,11 @@ class Animal(models.Model):
     nombreAnimal = models.CharField(max_length=50, verbose_name='Nombre animal')
     edadAnimal = models.IntegerField(verbose_name='Edad animal')
     especie =models.ForeignKey(Especie, on_delete=models.CASCADE, verbose_name = 'Especie')
-    generoAnimal = models.ForeignKey(Genero, on_delete=models.CASCADE, verbose_name = 'Género')
+    generoAnimal = models.ForeignKey(Genero, on_delete=models.CASCADE, verbose_name = 'Género animal')
     esterilizado = models.BooleanField(verbose_name='Esterilizado')
-    fotografia = models.ImageField(blank = True, verbose_name = 'Fotografía animal')
+    fotografia = models.ImageField(blank = True, verbose_name = 'Fotografía animal', upload_to='images')
     def __str__(self):
         return self.nombreAnimal
+    class Meta:
+        db_table = "core_animal"
+

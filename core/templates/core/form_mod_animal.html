@@ -34,7 +34,8 @@
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
                             <a class="navbar-brand" href="#">AYUDA A UN PELUDO</a>
-                            <img src="{% static 'core/img/pawBrand.png' %}" width="30" height="30" class="d-inline-block align-text-top">
+                            <img src="{% static 'core/img/pawBrand.png' %}" width="30" height="30"
+                                class="d-inline-block align-text-top">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                                 aria-label="Toggle navigation">
@@ -43,7 +44,8 @@
                             <div class="collapse navbar-collapse ms-5" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+                                        <a class="nav-link active" aria-current="page"
+                                            href="{% url 'index' %}">Inicio</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
@@ -54,7 +56,8 @@
                                             Adopción
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="{% url 'perro' %}">Adopta un perro</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'perro' %}">Adopta un perro</a>
+                                            </li>
                                             <li><a class="dropdown-item" href="{% url 'gato' %}">Adopta un gato</a></li>
                                         </ul>
                                     </li>
@@ -68,69 +71,40 @@
                             </div>
                         </div>
                     </nav>
+                    <div>
+                        <img class="rounded-bottom w-100" src="{% static 'core/img/mantenedorBanner.jpg' %}" alt="">
+                        <p class="text-over-img">MODIFICAR ANIMAL</p>
+                    </div>
                 </header>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10 col-sm-12">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <a href="{% url 'perro' %}">
-                                <img src="{% static 'core/img/perros.jpg' %}" class="d-block w-100" alt="...">
-                            </a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>ADOPTA UN PELUDO CANINO</h5>
-                                <p>Nuestros peludos están esperando por un hogar. ¡Tú puedes dárselos!</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="{% url 'gato' %}">
-                                <img src="{% static 'core/img/gatos.jpg' %}" class="d-block w-100" alt="...">
-                            </a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>ADOPTA UN PELUDO FELINO</h5>
-                                <p>Nuestros peludos están esperando por un hogar. ¡Tú puedes dárselos!</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="{% url 'nosotros' %}">
-                                <img src="{% static 'core/img/personas.jpg' %}" class="d-block w-100" alt="...">
-                            </a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>¡CONÓCENOS!</h5>
-                                <p>¿Te interesa la institución? Conoce a las personas trás el proyecto.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
+                <div class="container-fluid bg-white py-5">
+                    {%load crispy_forms_tags %} 
 
+                    <div class="row">
+                        <form method="POST" action="" id="animalForm">
+                            {% csrf_token %}
+                            <div class="contact-form pb-3">
+                                {{ form|crispy }}
+                            </div>
+                    
+                            <input type="submit" class="btn btn-danger" value="Modificar" id="enviar">
+                            <input type="reset" class="btn btn-primary" value="Limpiar" id="limpiar">
+                            <div id="error" class="alert " role="alert"></div>
+                        </form>
+                    
+                        <div class="alert" role="alert">
+                            {{mensaje}}
+                        </div>
+                        
+                    </div>
+                    <a href="{% url 'animals_list' %}"><img class="btn-img" src="{% static 'core/img/back.png' %}" alt=""></a>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    </div>
+    </div>
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1"></div>
@@ -146,7 +120,7 @@
                                     class="fab fa-instagram"></i></a>
                     </div>
                     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size: smaller;">
-                        Copyright © Ayuda un peludo 2021
+                        Ayuda un peludo © 2021
                     </div>
                 </footer>
             </div>
@@ -157,6 +131,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-    <script src="{% static 'js/mdb.min.js' %}" crossorigin="anonymous"></script>
-
+    <script src="{% static 'core/js/mdb.min.js' %}" crossorigin="anonymous"></script>
 </body>
+
+</html>
+

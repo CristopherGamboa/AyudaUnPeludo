@@ -1,16 +1,23 @@
+from os import stat
 from django.conf.urls import url
 from django.urls import path
 from django.urls.resolvers import URLPattern
-from .views import home, index, nosotros, donaciones, perro, gato, contacto, form_animal
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import index, nosotros, donaciones, perro, gato, contacto, form_animal, form_del_animal, form_mod_animal, animals_list
 
 urlpatterns = [
     path('', index, name = "index"),
     path('nosotros', nosotros, name = "nosotros"),
     path('contacto', contacto, name = "contacto"),
-    path('perro', perro, name = "perro"),
-    path('gato', gato, name = "gato"),
+    path('perros', perro, name = "perro"),
+    path('gatos', gato, name = "gato"),
     path('donaciones', donaciones, name = "donaciones"),
+    path('animals_list', animals_list, name = "animals_list"),
     path('form_animal', form_animal, name = "form_animal"),
-    # path('form_mod_vehiculo/<id>', form_mod_vehiculo, name = "form_mod_vehiculo"),
-    # path('form_del_vehiculo/<id>', form_del_vehiculo, name = "form_del_vehiculo")
+    path('form_mod_animal/<id>', form_mod_animal, name = "form_mod_animal"),
+    path('form_del_animal/<id>', form_del_animal, name = "form_del_animal")
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -5,4 +5,4 @@ from .models import Animal
 class AnimalForm(ModelForm):
     class Meta:
         model = Animal
-        fields = ['numChip', 'nombreAnimal', 'edadAnimal', 'generoAnimal', 'esterilizado', 'fotografia', 'especie']
+        fields = ['numChip', 'nombreAnimal', 'edadAnimal','especie', 'generoAnimal', 'esterilizado', 'fotografia']

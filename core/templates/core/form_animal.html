@@ -72,33 +72,31 @@
                         </div>
                     </nav>
                     <div>
-                        <img class="rounded-bottom w-100" src="{% static 'core/img/perrosBanner.jpg' %}" alt="">
-                        <p class="text-over-img">PERROS</p>
+                        <img class="rounded-bottom w-100" src="{% static 'core/img/mantenedorBanner.jpg' %}" alt="">
+                        <p class="text-over-img">INSERTAR UN ANIMAL</p>
                     </div>
                 </header>
-                <div class="container-fluid">
-                    <div class="row">
-                        <h1>Insertar animal</h1>
-                    </div>
-            
-                    <div class="row">
-                        <form method="POST" action="" id="animalForm">
+                <div class="container-fluid bg-white py-5">
+                    <div class="row pt-3">
+                        {%load crispy_forms_tags %} 
+                        <form method="POST" action="" id="animalForm" enctype="multipart/form-data">
                             {% csrf_token %}
-                            <div class="form-group">
-                                {{form.as_table}}
+                            <div class="contact-form row">
+                                {{ form|crispy }}
                             </div>
-            
-                            <input type="submit" class="btn btn-danger" value="Enviar" id="enviar">
-                            <input type="reset" class="btn btn-primary" value="Limpiar" id="limpiar">
-                            <div id="error" class="alert alert-danger" role="alert"></div>
+                            <div class="container-fluid pt-5">
+                                <input type="submit" class="btn btn-danger" value="Enviar" id="enviar">
+                                <input type="reset" class="btn btn-primary" value="Limpiar" id="limpiar">
+                            </div>
+                            <div id="error" class="alert" role="alert"></div>
                         </form>
-            
-                        <div class="alert alert-success" role="alert">
-                            {{message}}
+
+                        <div class="alert" role="alert">
+                            {{mensaje}}
                         </div>
+
                     </div>
-            
-                    <a href="{% url 'index' %}"> Regresar </a>
+                    <a href="{% url 'animals_list' %}"><img class="btn-img" src="{% static 'core/img/back.png' %}" alt=""></a>
                 </div>
             </div>
             <div class="col-md-1"></div>

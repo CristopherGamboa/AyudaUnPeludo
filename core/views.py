@@ -1,15 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Animal
 from core.forms import AnimalForm
 
+
 # Create your views here.
 
-def home(request):
+def animals_list(request):
     animales = Animal.objects.all()
     datos = {
         'animales': animales
     }
-    return render(request, 'core/home.html', datos)
+    return render(request, 'core/animals_list.html', datos)
 
 def index(request):
     return render(request, 'core/index.html')
@@ -36,54 +37,45 @@ def form_animal(request):
     }
 
     if request.method == 'POST':
+        formulario = AnimalForm(request.POST, request.FILES)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = "Datos guardados correctamente."
+        else:
+            datos['mensaje'] = "Se ha producido un error."
 
-        formulario = AnimalForm(request.POST)
+    return render(request, 'core/form_animal.html', datos)
+
+def form_mod_animal(request, id):
+
+    animal = Animal.objects.get(nombreAnimal = id)
+
+    datos= {
+
+        'form': AnimalForm(instance=animal)
+
+    }
+
+    if request.method == 'POST':
+
+        formulario = AnimalForm(data = request.POST, instance=animal)
 
         if formulario.is_valid:
 
             formulario.save()
 
-            
-            datos['mensaje'] = "Datos guardados correctamente."
+            datos['mensaje'] = "Datos guardados correctamente"
         else:
-            datos['mensaje'] = "Error"
-
-    return render(request, 'core/form_animal.html', datos)
-
-# def form_mod_vehiculo(request, id):
-
-#     vehiculo = Vehiculo.objects.get(patente = id)
-
-#     datos= {
-
-#         'form': VehiculoForm(instance=vehiculo)
-
-#     }
+            datos['mensaje'] = "Se ha producido un error."
 
 
 
-#     if request.method == 'POST':
+    return render(request, 'core/form_mod_animal.html', datos)
 
-#         formulario = VehiculoForm(data = request.POST, instance=vehiculo)
+def form_del_animal(request, id):
 
+    animal = Animal.objects.get(nombreAnimal = id)
 
+    animal.delete()
 
-#         if formulario.is_valid:
-
-#             formulario.save()
-
-
-
-#             datos['mensaje'] = "Datos guardados correctamente"
-
-
-
-#     return render(request, 'core/form_mod_vehiculo.html', datos)
-
-# def form_del_vehiculo(request, id):
-
-#     vehiculo = Vehiculo.objects.get(patente = id)
-
-#     vehiculo.delete()
-
-#     return redirect(to='home')
+    return redirect(to='animals_list')
